@@ -132,7 +132,7 @@ const JsonViewerInner: FC<JsonViewerProps> = (props) => {
   )
 }
 
-export const JsonViewer = function JsonViewer<Value> (props: JsonViewerProps<Value>): ReactElement {
+export const JsonViewer = function JsonViewer<Value> (props: JsonViewerProps<Value>): ReactElement<any> {
   const isAutoDarkTheme = useThemeDetector()
   const themeType = useMemo(() => props.theme === 'auto'
     ? (isAutoDarkTheme ? 'dark' : 'light')

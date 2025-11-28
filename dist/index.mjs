@@ -1523,7 +1523,7 @@ const DataKeyPair = (props)=>{
         prevValue,
         value
     ]);
-    const highlightContainer = useRef();
+    const highlightContainer = useRef(undefined);
     useEffect(()=>{
         if (highlightContainer.current && isHighlight && 'animate' in highlightContainer.current) {
             highlightContainer.current.animate([

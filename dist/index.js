@@ -1523,7 +1523,7 @@
           prevValue,
           value
       ]);
-      const highlightContainer = react.useRef();
+      const highlightContainer = react.useRef(undefined);
       react.useEffect(()=>{
           if (highlightContainer.current && isHighlight && 'animate' in highlightContainer.current) {
               highlightContainer.current.animate([

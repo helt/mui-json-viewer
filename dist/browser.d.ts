@@ -405,7 +405,7 @@ declare namespace dataTypes {
 declare class JsonViewer {
     private props;
     private root?;
-    static Component: <Value>(props: JsonViewerProps<Value>) => react.ReactElement;
+    static Component: <Value>(props: JsonViewerProps<Value>) => react.ReactElement<any>;
     static DataTypes: typeof dataTypes;
     static Themes: typeof base16;
     static Utils: {

@@ -405,6 +405,6 @@ declare function pathValueDefaultGetter(value: any, key: any): unknown;
  */
 declare function getPathValue<T = unknown, R = unknown>(obj: T, path: Path, customGetters?: PathValueCustomGetter[]): R | null;
 
-declare const JsonViewer: <Value>(props: JsonViewerProps<Value>) => ReactElement;
+declare const JsonViewer: <Value>(props: JsonViewerProps<Value>) => ReactElement<any>;
 
 export { type Colorspace, type DataItemProps, type DataType, type EasyTypeConfig, type EditorProps, JsonViewer, type JsonViewerKeyRenderer, type JsonViewerOnAdd, type JsonViewerOnChange, type JsonViewerOnCopy, type JsonViewerOnDelete, type JsonViewerOnSelect, type JsonViewerProps, type JsonViewerTheme, type NamedColorspace, type Path, type PathValueCustomGetter, applyValue, bigIntType, booleanType, darkColorspace, dateType, defineDataType, defineEasyType, deleteValue, floatType, functionType, getPathValue, intType, isCycleReference, lightColorspace, nanType, nullType, objectType, pathValueDefaultGetter, safeStringify, stringType, undefinedType };
