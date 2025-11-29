@@ -15,7 +15,7 @@ jobs:
         with:
           token: ${{secrets.GITHUB_TOKEN}}
   publish:
-    name: 'Publish @textea/json-viewer'
+    name: 'Publish @helt/mui-json-viewer'
     needs: release
     if: needs.release.outputs.release_created
     runs-on: ubuntu-latest
@@ -55,7 +55,7 @@ jobs:
           npm pkg delete scripts
           npm pkg delete lint-staged
 
-      - name: Publish to npm
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publish to npm
+      #   run: npm publish --provenance --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
