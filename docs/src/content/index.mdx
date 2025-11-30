@@ -1,0 +1,104 @@
+---
+title: "Introduction"
+---
+import { Button } from '@mui/material'
+import { Tabs } from 'nextra/components'
+import { JsonViewerPreview } from '@/examples/JsonViewerPreview'
+
+# @helt/mui-json-viewer
+
+## Overview
+
+> **Makes data visualization a breeze!**
+
+`@helt/mui-json-viewer` allows you to display JSON data in a readable and user-friendly format. But it's not just limited to JSON - you can use it to view **ANY** kind of data. The library is highly customizable and supports 100% TypeScript, making it easy to modify and tailor to your specific needs.
+
+## Getting Started
+
+### Installation
+
+`@helt/mui-json-viewer` is using [Material-UI](https://mui.com/) as the base component library, so you need to install it and its peer dependencies first.
+
+<Tabs items={['npm', 'yarn', 'pnpm']}>
+  <Tabs.Tab label="npm">``` npm install @helt/mui-json-viewer @mui/material @emotion/react @emotion/styled ```</Tabs.Tab>
+  <Tabs.Tab label="yarn">``` yarn add @helt/mui-json-viewer @mui/material @emotion/react @emotion/styled ```</Tabs.Tab>
+  <Tabs.Tab label="pnpm">``` pnpm add @helt/mui-json-viewer @mui/material @emotion/react @emotion/styled ```</Tabs.Tab>
+</Tabs>
+
+You can also use it directly from a CDN:
+
+```html {5,8-12} filename="index.html"
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <div id="json-viewer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@helt/mui-json-viewer@3"></script>
+
+    <script>
+      new JsonViewer({
+        value: {
+          /* ... */
+        }
+      }).render('#json-viewer')
+    </script>
+  </body>
+</html>
+```
+
+### Basic Example
+
+```tsx
+import { JsonViewer } from '@helt/mui-json-viewer'
+
+const object = {
+  /* my json object */
+}
+const Component = () => <JsonViewer value={object} />
+```
+
+<JsonViewerPreview
+  value={{
+    string: 'this is a string',
+    number: 1,
+    float: 114.514,
+    bigint: 10086n,
+    object: { a: undefined },
+    map: new Map([
+      ['oh no', null],
+      ['birth', new Date('December 17, 1995 03:24:00')]
+    ])
+  }}
+/>
+
+### Advanced Example
+
+<br />
+<Button variant="contained"  href="/full" target="_blank">
+  DEMO
+</Button> 
+
+Check the [source code](https://github.com/helt/mui-json-viewer/blob/main/docs/pages/full/index.tsx) for more details.
+
+## API
+
+See the documentation below for a complete reference to all of the props available
+
+- [API Reference](/apis)
+
+## Contributors
+
+<a href="https://github.com/helt/mui-json-viewer/graphs/contributors">
+  <img src="https://opencollective.com/json-viewer/contributors.svg?width=890&button=false" />
+</a>
+
+## Acknowledge
+
+This package is originally based on [mac-s-g/react-json-view](https://github.com/mac-s-g/react-json-view).
+
+Also thanks open source projects that make this possible.
+
+## Sponsoring services
+
+![Netlify](https://www.netlify.com/v3/img/components/full-logo-light.svg)
+
+[Netlify](https://www.netlify.com/) lets us distribute the [site](https://viewer.textea.io).

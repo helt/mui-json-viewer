@@ -1,0 +1,319 @@
+---
+title: Defining Data Types
+---
+import { Tabs } from 'nextra/components'
+import JsonViewerWithURL from '@/examples/JsonViewerWithURL'
+import JsonViewerWithImage from '@/examples/JsonViewerWithImage'
+import JsonViewerWithWidget from '@/examples/JsonViewerWithWidget'
+import JsonViewerCustomizeDate from '@/examples/JsonViewerCustomizeDate'
+
+# Defining data types for any data
+
+The `defineDataType` function allows you to define custom data types for any data structure. This is useful for:
+
+- Adding support for data types not supported by the library.
+- Customizing or extending the appearance and functionality of existing data types.
+
+## Introduction
+
+To define a data type using `defineDataType`, you provide an object with various properties, such as `is`, `Component`, `PreComponent`, `PostComponent`, and `Editor`. These properties enable you to specify how to match values of the data type, how to render them, and how to edit them.
+
+Before we dive into the details of defining a data type, let's take a closer look at the object that you'll need to provide to `defineDataType`.
+
+#### `is` - The Type Matcher
+
+The `is` function takes a value and a path and returns true if the value belongs to the data type being defined.
+
+#### `Component` - The Renderer
+
+The `Component` prop is a React component that renders the value of the data type. It receives a `DataItemProps` object as a `prop`, which includes the following:
+
+- `props.path` - The path to the value.
+- `props.value` - The value to render.
+- `props.inspect` - A Boolean flag indicating whether the value is being inspected (expanded).
+- `props.setInspect` - A function that can be used to toggle the inspect state.
+
+#### `PreComponent` and `PostComponent`
+
+For advanced use cases, you can provide `PreComponent` and `PostComponent` to render content before and after the value, respectively. This is useful if you want to add a button or implement an expandable view.
+
+#### `Editor`
+
+To enable editing for a data type, you need to provide `serialize` and `deserialize` functions to convert the value to and from a string representation. You can then use the `Editor` component to provide a custom editor for the stringified value. When the user edits the value, it will be parsed using `deserialize`, and the result will be passed to the `onChange` callback.
+- `props.path` - The path to the value.
+- `props.value` - The value to edit.
+- `props.setValue` - A function that can be used to update the value.
+- `props.abortEditing` - A function that can be used to abort editing.
+- `props.commitEditing` - A function that can be used to commit the value and finish editing.
+
+## Examples
+
+### Adding support for image
+
+Suppose you have a JSON object that includes an image URL:
+
+```json
+{
+  "image": "https://i.imgur.com/1bX5QH6.jpg"
+}
+```
+
+If you want to preview images directly in your JSON, you can define a data type for images:
+
+<Tabs items={['JS', 'TS']}>
+  <Tabs.Tab>
+
+```jsx
+import { defineDataType } from '@textea/json-viewer'
+
+const imageType = defineDataType({
+  is: (value) => {
+    if (typeof value !== 'string') return false
+    try {
+      const url = new URL(value)
+      return url.pathname.endsWith('.jpg')
+    } catch {
+      return false
+    }
+  },
+  Component: (props) => {
+    return (
+      <img
+        height={48}
+        width={48}
+        src={props.value}
+        alt={props.value}
+        style={{ display: 'inline-block' }}
+      />
+    )
+  }
+})
+```
+
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```tsx
+import { defineDataType } from '@textea/json-viewer'
+
+const imageType = defineDataType<string>({
+  is: (value) => {
+    if (typeof value !== 'string') return false
+    try {
+      const url = new URL(value)
+      return url.pathname.endsWith('.jpg')
+    } catch {
+      return false
+    }
+  },
+  Component: (props) => {
+    return (
+      <img
+        height={48}
+        width={48}
+        src={props.value}
+        alt={props.value}
+        style={{ display: 'inline-block' }}
+      />
+    )
+  }
+})
+```
+
+  </Tabs.Tab>
+</Tabs>
+
+And then use it like this:
+
+```jsx {3,5}
+<JsonViewer
+  value={{
+    image: 'https://i.imgur.com/1bX5QH6.jpg'
+  }}
+  valueTypes={[imageType]}
+/>
+```
+
+<br />
+<JsonViewerWithImage />
+
+### Adding support for `URL`
+
+Let's add support for the [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) API.
+
+<Tabs items={['JS', 'TS']}>
+  <Tabs.Tab>
+```jsx
+import { defineDataType } from '@textea/json-viewer'
+
+const urlType = defineDataType({
+  is: (value) => value instanceof URL,
+  Component: (props) => {
+    const url = props.value.toString()
+    return (
+      <a
+        href={url}
+        target='_blank'
+        rel='noopener noreferrer'
+        style={{
+          cursor: 'pointer',
+          color: '#1976d2',
+          textDecoration: 'underline'
+        }}
+      >
+        {url}
+      </a>
+    )
+  }
+})
+```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```tsx
+import { defineDataType } from '@textea/json-viewer'
+
+const urlType = defineDataType<URL>({
+  is: (value) => value instanceof URL,
+  Component: (props) => {
+    const url = props.value.toString()
+    return (
+      <a
+        href={url}
+        target='_blank'
+        rel='noopener noreferrer'
+        style={{
+          cursor: 'pointer',
+          color: '#1976d2',
+          textDecoration: 'underline'
+        }}
+      >
+        {url}
+      </a>
+    )
+  }
+})
+```
+  </Tabs.Tab>
+</Tabs>
+
+And then use it like this:
+
+```jsx {4,6}
+<JsonViewer
+  value={{
+    string: 'this is a string',
+    url: new URL('https://example.com')
+  }}
+  valueTypes={[urlType]}
+/>
+```
+
+It should looks like this 🎉
+
+<br />
+<JsonViewerWithURL />
+
+### Adding widgets to the value
+
+Sometimes you might want to add a button to the value.
+
+<JsonViewerWithWidget />
+
+In this example, we will **extend the built-in `stringType`** and add a button to open the link in a new tab.
+
+<Tabs items={['JS', 'TS']}>
+  <Tabs.Tab>
+```jsx
+import { defineDataType, JsonViewer, stringType } from '@textea/json-viewer'
+import { Button } from '@mui/material'
+
+const linkType = defineDataType({
+  ...stringType,
+  is (value) {
+    return typeof value === 'string' && value.startsWith('http')
+  },
+  PostComponent: (props) => (
+    <Button
+      variant='contained'
+      size='small'
+      href={props.value}
+      target='_blank'
+      rel='noopener noreferrer'
+      sx={{
+        display: 'inline-block',
+        marginLeft: 1
+      }}
+    >
+      Open
+      <LinkIcon sx={{ strokeWidth: 2 }} />
+    </Button>
+  )
+})
+```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```tsx
+import { defineDataType, JsonViewer, stringType } from '@textea/json-viewer'
+import { Button } from '@mui/material'
+
+const linkType = defineDataType<string>({
+  ...stringType,
+  is (value) {
+    return typeof value === 'string' && value.startsWith('http')
+  },
+  PostComponent: (props) => (
+    <Button
+      variant='contained'
+      size='small'
+      href={props.value}
+      target='_blank'
+      rel='noopener noreferrer'
+      sx={{
+        display: 'inline-block',
+        marginLeft: 1
+      }}
+    >
+      Open
+      <LinkIcon sx={{ strokeWidth: 2 }} />
+    </Button>
+  )
+})
+```
+  </Tabs.Tab>
+</Tabs>
+
+### Customize the `Date` format
+
+By default, `Date` values are displayed using the `toLocaleString` method. You will learn how to create a custom data type for `Date` and display it in a different format. We will use the enhanced `defineEasyType` function to simplify the process.
+
+<Tabs items={['JS', 'TS']}>
+  <Tabs.Tab>
+```jsx
+import { defineEasyType } from '@textea/json-viewer'
+
+const myDateType = defineEasyType({
+  is: (value) => value instanceof Date,
+  type: 'date',
+  colorKey: 'base0D',
+  Renderer: ({ value }) => <>{value.toISOString().split('T')[0]}</>
+})
+```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```tsx
+import { defineEasyType } from '@textea/json-viewer'
+
+const myDateType = defineEasyType<Date>({
+  is: (value) => value instanceof Date,
+  type: 'date',
+  colorKey: 'base0D',
+  Renderer: ({ value }) => <>{value.toISOString().split('T')[0]}</>
+})
+```
+  </Tabs.Tab>
+</Tabs>
+
+<JsonViewerCustomizeDate />

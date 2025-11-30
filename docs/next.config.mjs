@@ -1,20 +1,29 @@
-import nextra from 'nextra'
+import nextra from "nextra";
 
 const withNextra = nextra({
-  theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.js',
-  staticImage: true,
-  defaultShowCopyCode: true
-})
+    search: true,
+    defaultShowCopyCode: true,
+    contentDirBasePath: "/docs"
+});
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  optimizeFonts: true,
-  images: {
-    domains: ['i.imgur.com', 'www.netlify.com']
-  },
-  transpilePackages: ['@textea/json-viewer']
-}
+export default withNextra({
+    reactStrictMode: true,
+    images: {
+        remotePatterns: [
+            { hostname: 'i.imgur.com' },
+            { hostname: 'www.netlify.com' }
+        ],
+    },
+    transpilePackages: ['@helt/mui-json-viewer'],
+    async rewrites() {
+        return [
+            {
+                source: '/',
+                destination: '/docs',
+            },
+        ]
+    },
 
-export default withNextra(nextConfig)
+    // ... Other Next.js config options
+    // output: 'export'
+});
