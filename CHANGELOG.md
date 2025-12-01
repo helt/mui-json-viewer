@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/helt/mui-json-viewer/compare/mui-json-viewer-v5.0.0...mui-json-viewer-v5.0.1) (2025-12-01)
+
+
+### Bug Fixes
+
+* ensure typeRegistry is treated as generic, not as jsx ([963bbef](https://github.com/helt/mui-json-viewer/commit/963bbefc9a7068ef88e9872d5c09385793cf7b64))
+
 ## [5.0.0](https://github.com/helt/mui-json-viewer/compare/mui-json-viewer-v4.0.1...mui-json-viewer-v5.0.0) (2025-12-01)
 
 
