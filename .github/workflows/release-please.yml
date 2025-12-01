@@ -43,14 +43,14 @@ jobs:
         run: pnpm run prepack
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Clean package.json
         run: |
-          npm pkg delete scripts
-          npm pkg delete lint-staged
+          pnpm pkg delete scripts
+          pnpm pkg delete lint-staged
 
       - name: Publish to npm
-        run: npm publish --provenance --access public
+        run: pnpm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
