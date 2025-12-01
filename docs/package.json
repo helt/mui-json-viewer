@@ -1,23 +1,12 @@
 {
-  "name": "@helt/mui-json-viewer-docs4",
-  "version": "1.0.0",
-  "description": "Nextra docs starter with search included.",
+  "name": "@helt/mui-json-viewer-docs",
+  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind"
   },
-  "repository": {
-    "type": "module",
-    "url": "https://github.com/helt/mui-json-viewer"
-  },
-  "author": "helt",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/helt/mui-json-viewer/issues"
-  },
-  "homepage": "https://github.com/helt/mui-json-viewer#readme",
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
@@ -25,7 +14,6 @@
     "@mui/material": "^6.1.10",
     "@radix-ui/react-dialog": "^1.1.15",
     "@tailwindcss/postcss": "^4.1.17",
-    "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "lucide-react": "^0.555.0",

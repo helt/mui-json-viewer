@@ -1,11 +1,11 @@
-"use client"
+'use client'
 
 import type { JsonViewerProps } from '@helt/mui-json-viewer'
 import { JsonViewer } from '@helt/mui-json-viewer'
 import type { FC } from 'react'
 
-import { useNextraTheme } from '@/hooks/useTheme'
 import { ClientOnly } from '@/components/ui/ClientOnly'
+import { useNextraTheme } from '@/hooks/useTheme'
 
 export const JsonViewerPreview: FC<JsonViewerProps> = (props) => {
   const theme = useNextraTheme()

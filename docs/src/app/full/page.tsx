@@ -1,19 +1,4 @@
-"use client"
-import type { SvgIconProps } from '@mui/material'
-import {
-  AppBar,
-  Box,
-  FormControl,
-  FormControlLabel,
-  InputLabel,
-  MenuItem,
-  Select,
-  SvgIcon,
-  Switch,
-  TextField,
-  Toolbar,
-  Typography
-} from '@mui/material'
+'use client'
 import type {
   DataType,
   JsonViewerKeyRenderer,
@@ -29,6 +14,21 @@ import {
   JsonViewer,
   stringType
 } from '@helt/mui-json-viewer'
+import type { SvgIconProps } from '@mui/material'
+import {
+  AppBar,
+  Box,
+  FormControl,
+  FormControlLabel,
+  InputLabel,
+  MenuItem,
+  Select,
+  SvgIcon,
+  Switch,
+  TextField,
+  Toolbar,
+  Typography
+} from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import type { FC } from 'react'
@@ -149,12 +149,14 @@ const imageDataType = defineDataType<string>({
 
 const LinkIcon = (props: SvgIconProps) => (
   // <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' strokeWidth='2' stroke='currentColor' fill='none' strokeLinecap='round' strokeLinejoin='round'>
-  (<SvgIcon {...props}>
-    <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
-    <path stroke='currentcolor' d='M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5' fill='none'></path>
-    <path stroke='currentcolor' d='M10 14l10 -10'></path>
-    <path stroke='currentcolor' d='M15 4l5 0l0 5' fill='none'></path>
-  </SvgIcon>)
+  (
+    <SvgIcon {...props}>
+      <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+      <path stroke='currentcolor' d='M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5' fill='none'></path>
+      <path stroke='currentcolor' d='M10 14l10 -10'></path>
+      <path stroke='currentcolor' d='M15 4l5 0l0 5' fill='none'></path>
+    </SvgIcon>
+  )
 )
 
 const linkType: DataType<string> = {

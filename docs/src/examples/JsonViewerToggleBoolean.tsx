@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import type { JsonViewerOnChange } from '@helt/mui-json-viewer'
 import { applyValue, booleanType, defineDataType, defineEasyType, JsonViewer } from '@helt/mui-json-viewer'
 import type { FC } from 'react'

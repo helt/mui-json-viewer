@@ -9,6 +9,6 @@ export const ClientOnly = dynamic(
       return children
     }),
   {
-    ssr: false,
+    ssr: false
   }
 )

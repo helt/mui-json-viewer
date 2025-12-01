@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { defineEasyType, JsonViewer } from '@helt/mui-json-viewer'
 import type { FC } from 'react'
 
