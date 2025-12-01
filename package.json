@@ -53,7 +53,7 @@
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "prepack": "pinst --disable",
-    "prepare": "",
+    "prepare": "husky",
     "postpack": "pinst --enable",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --cache --fix",
     "lint:ci": "eslint . --ext .ts,.tsx,.js,.jsx --cache --max-warnings 0",
