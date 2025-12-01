@@ -18,7 +18,7 @@ lerna-debug.log*
 **/!.yarn/versions
 
 node_modules
-// dist
+dist
 dist-ssr
 coverage
 *.local
