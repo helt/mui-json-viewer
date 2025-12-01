@@ -39,7 +39,7 @@ npm install @helt/mui-json-viewer @mui/material @emotion/react @emotion/styled
 <html lang="en">
   <body>
     <div id="json-viewer"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@helt/mui-json-viewer@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@helt/mui-json-viewer@4"></script>
     <script>
       new JsonViewer({
         value: {
