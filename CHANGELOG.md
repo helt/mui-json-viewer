@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.5](https://github.com/helt/mui-json-viewer/compare/mui-json-viewer-v5.0.4...mui-json-viewer-v5.0.5) (2025-12-02)
+
+
+### Bug Fixes
+
+* renamed the package, again ([1db5952](https://github.com/helt/mui-json-viewer/commit/1db59528b45a95cd8d93726b20b12da4989a5c7b))
+
 ## [5.0.4](https://github.com/helt/mui-json-viewer/compare/mui-json-viewer-v5.0.3...mui-json-viewer-v5.0.4) (2025-12-01)
 
 
