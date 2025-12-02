@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.9](https://github.com/dataxpdtn/mui-json-viewer/compare/mui-json-viewer-v5.0.8...mui-json-viewer-v5.0.9) (2025-12-02)
+
+
+### Bug Fixes
+
+* align tsconfigs to allow builds to succeed ([b84e781](https://github.com/dataxpdtn/mui-json-viewer/commit/b84e781f891596502f408a125024dcd1d8466cca))
+
 ## [5.0.8](https://github.com/dataxpdtn/mui-json-viewer/compare/mui-json-viewer-v5.0.7...mui-json-viewer-v5.0.8) (2025-12-02)
 
 
