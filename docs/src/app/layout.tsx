@@ -7,6 +7,7 @@ import { Footer, Layout, Navbar } from 'nextra-theme-docs'
 
 import { NextraSearchDialog } from '@/components/nextra-search-dialog'
 import { getPagesFromPageMap } from '@/lib/getPagesFromPageMap'
+import { ReactNode } from 'react'
 
 export const metadata: Metadata = {
   // Define your metadata here
@@ -22,7 +23,7 @@ const navbar = (
 )
 const footer = <Footer>MIT {new Date().getFullYear()} © Hendrik Luecke-Tieke.</Footer>
 
-export default async function RootLayout ({ children }) {
+export default async function RootLayout ({ children }: {children: ReactNode}) {
   const pageMap = await getPageMap()
   const pages = await getPagesFromPageMap({
     pageMapArray: pageMap

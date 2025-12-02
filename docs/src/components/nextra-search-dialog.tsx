@@ -15,7 +15,7 @@ type Props = {
     placeholder?: string;
     pages?: PageItem[];
 };
-type OnSelect = (url: string) => void;
+type OnSelect = (url?: string) => void;
 
 export function NextraSearchDialog ({ placeholder = 'Search...', pages = [] }: Props) {
   const router = useRouter()
@@ -123,9 +123,11 @@ export function NextraSearchDialog ({ placeholder = 'Search...', pages = [] }: P
 
   if (!canRender) return null
 
-  const handleResultClick = (url: string) => {
-    setOpen(false)
-    router.push(url)
+  const handleResultClick = (url?: string) => {
+    if(url) {
+      setOpen(false)
+      router.push(url)
+    }
   }
 
   function SearchContent () {
@@ -182,7 +184,7 @@ function SearchWelcomePages (
           value={title}
           title={title}
           parent={parent}
-          onSelect={() => onSelect(url)}
+          onSelect={() => onSelect?.(url)}
           description={description}
         />
       ))}
@@ -282,7 +284,7 @@ function SearchItem ({ url, title, description, onSelect, value, parent }: {
     value?: string;
 }) {
   return (
-    <CommandItem onSelect={() => onSelect(url)} value={value} className='cursor-pointer'>
+    <CommandItem onSelect={() => onSelect?.(url)} value={value} className='cursor-pointer'>
       <div className='flex flex-col gap-1 w-full'>
         <div className='flex items-center gap-1'>
           {parent && (
@@ -362,7 +364,7 @@ async function importPagefind () {
   window.pagefind = await import(
     /* webpackIgnore: true */ addBasePath('/_pagefind/pagefind.js')
   )
-  await window.pagefind.options({
+  await window?.pagefind?.options({
     baseUrl: '/'
   })
 }
