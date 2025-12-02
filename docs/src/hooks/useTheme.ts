@@ -1,4 +1,4 @@
-import type { JsonViewerTheme } from '@helt/mui-json-viewer'
+import type { JsonViewerTheme } from '@dataxpdtn/mui-json-viewer'
 import { useTheme } from 'nextra-theme-docs'
 
 export function useNextraTheme () {

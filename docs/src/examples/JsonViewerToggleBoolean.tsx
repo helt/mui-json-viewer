@@ -1,6 +1,6 @@
 'use client'
-import type { JsonViewerOnChange } from '@helt/mui-json-viewer'
-import { applyValue, booleanType, defineDataType, defineEasyType, JsonViewer } from '@helt/mui-json-viewer'
+import type { JsonViewerOnChange } from '@dataxpdtn/mui-json-viewer'
+import { applyValue, booleanType, defineDataType, defineEasyType, JsonViewer } from '@dataxpdtn/mui-json-viewer'
 import type { FC } from 'react'
 import { useCallback, useMemo, useState } from 'react'
 

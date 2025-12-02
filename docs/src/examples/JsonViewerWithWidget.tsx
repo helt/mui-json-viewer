@@ -1,5 +1,5 @@
 'use client'
-import { defineDataType, JsonViewer, stringType } from '@helt/mui-json-viewer'
+import { defineDataType, JsonViewer, stringType } from '@dataxpdtn/mui-json-viewer'
 import type { SvgIconProps } from '@mui/material'
 import { Button, SvgIcon } from '@mui/material'
 import type { FC } from 'react'

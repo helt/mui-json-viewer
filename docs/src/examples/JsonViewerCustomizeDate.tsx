@@ -1,5 +1,5 @@
 'use client'
-import { defineEasyType, JsonViewer } from '@helt/mui-json-viewer'
+import { defineEasyType, JsonViewer } from '@dataxpdtn/mui-json-viewer'
 import type { FC } from 'react'
 
 import { useNextraTheme } from '@/hooks/useTheme'

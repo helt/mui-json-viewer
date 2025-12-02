@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 const navbar = (
   <Navbar
     projectLink='https://github.com/helt/mui-json-viewer'
-    logo={'@helt/mui-json-viewer'}
+    logo={'@dataxpdtn/mui-json-viewer'}
   />
 )
 const footer = <Footer>MIT {new Date().getFullYear()} © Hendrik Luecke-Tieke.</Footer>

@@ -1,7 +1,7 @@
 'use client'
 
-import type { JsonViewerProps } from '@helt/mui-json-viewer'
-import { JsonViewer } from '@helt/mui-json-viewer'
+import type { JsonViewerProps } from '@dataxpdtn/mui-json-viewer'
+import { JsonViewer } from '@dataxpdtn/mui-json-viewer'
 import type { FC } from 'react'
 
 import { ClientOnly } from '@/components/ui/ClientOnly'

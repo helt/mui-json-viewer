@@ -11,7 +11,7 @@ export default withNextra({
   images: {
     remotePatterns: [{ hostname: 'i.imgur.com' }, { hostname: 'www.netlify.com' }]
   },
-  transpilePackages: ['@helt/mui-json-viewer'],
+  transpilePackages: ['@dataxpdtn/mui-json-viewer'],
   async rewrites() {
     return [
       {

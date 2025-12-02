@@ -1,5 +1,5 @@
 {
-  "name": "@helt/mui-json-viewer-docs",
+  "name": "@dataxpdtn/mui-json-viewer-docs",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,7 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-    "@helt/mui-json-viewer": "workspace:^",
+    "@dataxpdtn/mui-json-viewer": "workspace:^",
     "@mui/material": "^7.3.5",
     "@radix-ui/react-dialog": "^1.1.15",
     "@tailwindcss/postcss": "^4.1.17",

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@helt/mui-json-viewer": ["../src/index"]
+      "@dataxpdtn/mui-json-viewer": ["../src/index"]
     },
     "jsx": "preserve",
     "incremental": true,

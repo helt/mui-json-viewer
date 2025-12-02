@@ -1,4 +1,4 @@
-import type { NamedColorspace } from '@helt/mui-json-viewer'
+import type { NamedColorspace } from '@dataxpdtn/mui-json-viewer'
 
 export const ocean: NamedColorspace = {
   scheme: 'Ocean',

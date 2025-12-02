@@ -129,7 +129,7 @@ importers:
 
   docs:
     dependencies:
-      '@helt/mui-json-viewer':
+      '@dataxpdtn/mui-json-viewer':
         specifier: workspace:^
         version: link:..
       '@emotion/react':

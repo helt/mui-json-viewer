@@ -6,14 +6,14 @@ import type {
   JsonViewerOnChange,
   JsonViewerOnDelete,
   JsonViewerTheme
-} from '@helt/mui-json-viewer'
+} from '@dataxpdtn/mui-json-viewer'
 import {
   applyValue,
   defineDataType,
   deleteValue,
   JsonViewer,
   stringType
-} from '@helt/mui-json-viewer'
+} from '@dataxpdtn/mui-json-viewer'
 import type { SvgIconProps } from '@mui/material'
 import {
   AppBar,
